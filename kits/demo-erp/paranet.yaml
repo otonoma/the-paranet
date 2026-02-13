@@ -1,0 +1,26 @@
+id: demo-erp
+name: demo-erp
+version: 0.1.0
+simulation: false
+actors:
+- name: Workflow
+  version: 0.0.1
+  paraflow: workflow.paraflow
+  path: ./actors/workflow
+- name: ERP Workflow
+  version: 0.0.1
+  paraflow: erp.paraflow
+  path: ./actors/erp
+  sql:
+    - erp.sql
+- name: Jira
+  version: 0.0.1
+  path: ./actors/jira
+  python_sdk: jira.py
+- name: Mock server
+  version: 0.0.1
+  path: ./actors/mock-server
+  python_sdk: server.py
+paranet_registry: 214730072331.dkr.ecr.us-west-2.amazonaws.com/otonoma
+channel: null
+platform: null

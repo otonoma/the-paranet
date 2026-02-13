@@ -1,0 +1,2656 @@
+#usda 1.0
+(
+    customLayerData = {
+        dictionary cameraSettings = {
+            dictionary Front = {
+                double3 position = (5, 0, 0)
+                double radius = 5
+            }
+            dictionary Perspective = {
+                double3 position = (51.20635809129062, -69.42353502276065, 22.228407810487656)
+                double3 target = (23.897060956056155, -51.485088927272045, 3.0184274529692843)
+            }
+            dictionary Right = {
+                double3 position = (0, -5, 0)
+                double radius = 5
+            }
+            dictionary Top = {
+                double3 position = (3.8251065931277117, -0.1380308573021322, 50001.50000215678)
+                double radius = 1.7090288162231446
+            }
+            string boundCamera = "/OmniverseKit_Persp"
+        }
+        dictionary metricsAssembler = {
+            dictionary "/World/BulkStorageRack_A01_PR_NVD_01" = {
+            }
+            dictionary "/World/BulkStorageRack_A03_PR_NVD_01" = {
+            }
+            dictionary "/World/HeavyDutyPackingTable_A04_01" = {
+            }
+            dictionary "/World/HeavyDutyPackingTable_A04_02" = {
+            }
+            dictionary "/World/HeavyDutyPackingTable_C04_01" = {
+            }
+            dictionary "/World/HeavyDutyPackingTable_C04_02" = {
+            }
+            dictionary "/World/HeavyDutySteelShelving_A17_PR_NVD_01" = {
+            }
+            dictionary "/World/LabWorkbench_A01_01" = {
+            }
+            dictionary "/World/LabWorkbench_A02_01" = {
+            }
+            dictionary "/World/LabWorkbench_A03_01" = {
+            }
+            dictionary "/World/LabWorkbench_A06_01" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_01" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_02" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_03" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_04" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_05" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_06" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_Ladder_01" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor1_Ladder_02" = {
+            }
+            dictionary "/World/Mezzanine_A01_Floor2_Ladder_01" = {
+            }
+            dictionary "/World/Mezzanine_A02_Floor1_Ladder_01" = {
+            }
+            dictionary "/World/RackLargeEmpty_A2" = {
+            }
+            dictionary "/World/RackLarge_A2" = {
+            }
+            dictionary "/World/Rack_G03_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_G08_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_L02_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_L15_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_M01_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_M10_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_N04_PR_NVD_01" = {
+            }
+            dictionary "/World/Rack_N04_PR_NVD_02" = {
+            }
+            dictionary "/World/ShopStool_B03_Black_01" = {
+            }
+            dictionary "/World/StainlessSteelStool_A01_01" = {
+            }
+            dictionary "/World/TableMetal_A02_01" = {
+            }
+            dictionary "/World/Warehouse_A06_H10m_Straight90_01" = {
+            }
+            dictionary "/World/Warehouse_A06_H10m_Straight_01" = {
+            }
+            dictionary "/World/Warehouse_A07_H10m_Straight90_01" = {
+            }
+            dictionary "/World/Warehouse_A11_H10m_Straight90_01" = {
+            }
+            dictionary "/World/Warehouse_A11_H10m_Straight90_02" = {
+            }
+            dictionary "/World/warehouse_shelf_stack_2" = {
+            }
+            int version = 1
+        }
+        dictionary omni_layer = {
+            string authoring_layer = "./warehouse_dressing_v01.usda"
+            dictionary locked = {
+            }
+            dictionary muteness = {
+            }
+        }
+        dictionary renderSettings = {
+            float3 "rtx:debugView:pixelDebug:textColor" = (0, 1e18, 0)
+            int "rtx:ecoMode:maxFramesWithoutChange" = 7
+            float3 "rtx:fog:fogColor" = (0.75, 0.75, 0.75)
+            float3 "rtx:index:backgroundColor" = (0, 0, 0)
+            float3 "rtx:index:regionOfInterestMax" = (0, 0, 0)
+            float3 "rtx:index:regionOfInterestMin" = (0, 0, 0)
+            float3 "rtx:post:backgroundZeroAlpha:backgroundDefaultColor" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gain" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorcorr:offset" = (0, 0, 0)
+            float3 "rtx:post:colorcorr:saturation" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:blackpoint" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:contrast" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gain" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:gamma" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:lift" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:multiply" = (1, 1, 1)
+            float3 "rtx:post:colorgrad:offset" = (0, 0, 0)
+            float3 "rtx:post:colorgrad:whitepoint" = (1, 1, 1)
+            float3 "rtx:post:lensDistortion:lensFocalLengthArray" = (10, 30, 50)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffX" = (450, 475, 500)
+            float3 "rtx:post:lensFlares:anisoFlareFalloffY" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:cutoffPoint" = (2, 2, 2)
+            float3 "rtx:post:lensFlares:haloFlareFalloff" = (10, 10, 10)
+            float3 "rtx:post:lensFlares:haloFlareRadius" = (75, 75, 75)
+            float3 "rtx:post:lensFlares:isotropicFlareFalloff" = (50, 50, 50)
+            float3 "rtx:post:lensFlares:spectralBlurWavelengthRange" = (380, 550, 770)
+            float3 "rtx:post:tonemap:whitepoint" = (1, 1, 1)
+            float3 "rtx:raytracing:indexdirect:svoBrickSize" = (32, 32, 32)
+            float3 "rtx:raytracing:inscattering:singleScatteringAlbedo" = (0.9, 0.9, 0.9)
+            float3 "rtx:raytracing:inscattering:transmittanceColor" = (0.5, 0.5, 0.5)
+            float3 "rtx:sceneDb:ambientLightColor" = (0.1, 0.1, 0.1)
+            float2 "rtx:viewTile:resolution" = (0, 0)
+        }
+    }
+    defaultPrim = "World"
+    endTimeCode = 1000000
+    metersPerUnit = 1
+    startTimeCode = 0
+    timeCodesPerSecond = 60
+    upAxis = "Z"
+)
+
+def Xform "World"
+{
+    def Xform "TallRacks" (
+        kind = "group"
+    )
+    {
+        float3 xformOp:rotateXYZ = (0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        float3 xformOp:translate:pivot = (23.897062, -51.48509, 3.0184267)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:translate:pivot", "xformOp:rotateXYZ", "xformOp:scale", "!invert!xformOp:translate:pivot"]
+
+        def Xform "Rack_stack_row_01A_01"
+        {
+            quatd xformOp:orient = (1, 0, 0, 0)
+            double3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:translate = (23.965920120786667, -42.44538513865436, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Xform "Rack_tall_stack_04"
+            {
+                quatd xformOp:orient = (0.7071067811865478, 0, 0, -0.7071067811865472)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (0, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "SmallRack_01"
+                {
+                    quatd xformOp:orient = (0.7071067811865475, 0, 0, -0.7071067811865476)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 2.531308496145357e-14)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def "SM_RackFrame_03" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        token visibility = "invisible"
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackFrame_04" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (4.0006634871938545, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_bottom_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A08_62cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9993974, 0, 0, 0.034710847)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (40.46504398171783, -7.419767967286134, 64.99499400659295)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70491725, 0, 0, -0.70928955)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (104.33801512317632, -5.084390023213928, 64.99499400659472)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (165.64838347715613, -9.147466220872047, 64.99499400659616)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (230.3496583554156, -6.547160180675746, 64.99499400659687)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_17" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9992802, 0, 0, -0.037934855)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (295.82940226366645, -0.7530841005445836, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.9999907, 0, 0, 0.004312373)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (47.355885283954194, -9.43510638510179, 111.94032486950064)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (178.3649049700025, -3.737098795932752, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.04789455, 0, 0, -0.9988524)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (110.29704365400266, -6.697591068039401, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_12" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.7342657, 0, 0, -0.6788622)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (243.00482440835185, -6.801555529261577, 111.94032486949959)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (311.45072688387154, -2.1535785321141248, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_18" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6853842, 0, 0, -0.7281816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (358.624644179808, -0.7530841005464026, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (323.0996066801008, 1.4535476089977237, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (196.40017379063102, 1.4535476089959047, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (72.34090331127845, 1.4535476089886288, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+
+                    def Xform "Boxes_middle_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A06_42cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (84.67532470929746, 26.461137970382197, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (35.90264702978766, 0, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (85.34908457499296, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.03489294274277, 26.461137970384016, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.70865280849193, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.0722195025828, 26.46113797038379, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.74597936836471, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (219.7512485621928, -17.466163732743553, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.43082910531393, -13.928348270198967, 182.45817497166922)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.74897427572705, -13.928348270198285, 182.45817497166888)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.06939373260775, -17.46616373274219, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (214.44713461961874, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6946584, 0, 0, 0.7193398)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (247.06652430264785, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A10_26x56x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A10_26x56x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (-0.5108593, 0.48841783, 0.5113199, 0.48889953)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.40509841328458, 19.985832807302813, 174.87195349752247)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (359.860074670416, 5.482722610354358, 162.44046030859622)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (306.0175540537066, -13.928348270195329, 189.94370446278873)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A07_26x32x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A07_26x32x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.51425743, 0.4853239, -0.51425743, 0.4853239)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (356.5077402032548, -20.740471582322243, 175.17092759767525)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "SM_RackShelf_01_bottom" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 0.5019336999634182)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_02_middle" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 1.621231693339564)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_03_top" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 2.3797340973946737)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_top_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "SM_CardBoxB_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.7148463, 0, 0, -0.6992816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.38412385815102823, -0.13344975692244532, 2.5307616773583983)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1487" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.9093711308247769, -0.08434291976912078, 2.5328168170207173)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxB_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (1.7523971362332595, -0.1719544522083325, 2.5341660547927742)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1489" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (2.282164110655792, -0.05422071581227783, 2.5362211944550923)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1490" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.71325046, 0, 0, -0.70090926)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.0044745427384534, -0.04084617046505912, 2.5315676852226034)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1491" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6990028, 0, 0, -0.71511894)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.5569777895367345, -0.031202176089962563, 2.531567685222603)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (0.6963648124810149, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (2.029554371523961, -1.4210854715202004e-14, 2.3866540427106666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (3.287328011067455, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "SM_Rackshield_03" (
+                    prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_Rackshield_02.usd@
+                )
+                {
+                    token visibility = "inherited"
+                    quatf xformOp:orient = (0.71325046, 0, 0, 0.70090926)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, -4, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "SmallRack_02"
+                {
+                    quatd xformOp:orient = (0.7071067811865475, 0, 0, -0.7071067811865476)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 3.0006323042590624)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def "SM_RackFrame_03" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        token visibility = "invisible"
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackFrame_04" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (4.0006634871938545, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_bottom_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A08_62cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9993974, 0, 0, 0.034710847)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (40.46504398171783, -7.419767967286134, 64.99499400659295)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70491725, 0, 0, -0.70928955)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (104.33801512317632, -5.084390023213928, 64.99499400659472)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (165.64838347715613, -9.147466220872047, 64.99499400659616)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (230.3496583554156, -6.547160180675746, 64.99499400659687)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_17" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9992802, 0, 0, -0.037934855)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (295.82940226366645, -0.7530841005445836, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.9999907, 0, 0, 0.004312373)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (47.355885283954194, -9.43510638510179, 111.94032486950064)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (178.3649049700025, -3.737098795932752, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.04789455, 0, 0, -0.9988524)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (110.29704365400266, -6.697591068039401, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_12" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.7342657, 0, 0, -0.6788622)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (243.00482440835185, -6.801555529261577, 111.94032486949959)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (311.45072688387154, -2.1535785321141248, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_18" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6853842, 0, 0, -0.7281816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (358.624644179808, -0.7530841005464026, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (323.0996066801008, 1.4535476089977237, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (196.40017379063102, 1.4535476089959047, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (72.34090331127845, 1.4535476089886288, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+
+                    def Xform "Boxes_middle_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A06_42cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (84.67532470929746, 26.461137970382197, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (35.90264702978766, 0, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (85.34908457499296, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.03489294274277, 26.461137970384016, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.70865280849193, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.0722195025828, 26.46113797038379, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.74597936836471, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (219.7512485621928, -17.466163732743553, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.43082910531393, -13.928348270198967, 182.45817497166922)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.74897427572705, -13.928348270198285, 182.45817497166888)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.06939373260775, -17.46616373274219, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (214.44713461961874, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6946584, 0, 0, 0.7193398)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (247.06652430264785, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A10_26x56x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A10_26x56x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (-0.5108593, 0.48841783, 0.5113199, 0.48889953)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.40509841328458, 19.985832807302813, 174.87195349752247)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (359.860074670416, 5.482722610354358, 162.44046030859622)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (306.0175540537066, -13.928348270195329, 189.94370446278873)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A07_26x32x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A07_26x32x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.51425743, 0.4853239, -0.51425743, 0.4853239)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (356.5077402032548, -20.740471582322243, 175.17092759767525)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "SM_RackShelf_01_bottom" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 0.5019336999634182)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_02_middle" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 1.621231693339564)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_03_top" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 2.3797340973946737)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_top_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "SM_CardBoxB_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.7148463, 0, 0, -0.6992816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.38412385815102823, -0.13344975692244532, 2.5307616773583983)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1487" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.9093711308247769, -0.08434291976912078, 2.5328168170207173)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxB_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (1.7523971362332595, -0.1719544522083325, 2.5341660547927742)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1489" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (2.282164110655792, -0.05422071581227783, 2.5362211944550923)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1490" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.71325046, 0, 0, -0.70090926)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.0044745427384534, -0.04084617046505912, 2.5315676852226034)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1491" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6990028, 0, 0, -0.71511894)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.5569777895367345, -0.031202176089962563, 2.531567685222603)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (0.6963648124810149, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (2.029554371523961, -1.4210854715202004e-14, 2.3866540427106666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (3.287328011067455, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            def Xform "Rack_tall_stack_05"
+            {
+                quatd xformOp:orient = (0.7071067811865478, 0, 0, -0.7071067811865472)
+                double3 xformOp:scale = (1, 1, 1)
+                double3 xformOp:translate = (4.0072618997530824, 0, 0)
+                uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                def Xform "SmallRack_01"
+                {
+                    quatd xformOp:orient = (0.7071067811865475, 0, 0, -0.7071067811865476)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 2.531308496145357e-14)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def "SM_RackFrame_03" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        token visibility = "inherited"
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackFrame_04" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (4.0006634871938545, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_bottom_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A08_62cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9993974, 0, 0, 0.034710847)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (40.46504398171783, -7.419767967286134, 64.99499400659295)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70491725, 0, 0, -0.70928955)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (104.33801512317632, -5.084390023213928, 64.99499400659472)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (165.64838347715613, -9.147466220872047, 64.99499400659616)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (230.3496583554156, -6.547160180675746, 64.99499400659687)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_17" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9992802, 0, 0, -0.037934855)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (295.82940226366645, -0.7530841005445836, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.9999907, 0, 0, 0.004312373)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (47.355885283954194, -9.43510638510179, 111.94032486950064)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (178.3649049700025, -3.737098795932752, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.04789455, 0, 0, -0.9988524)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (110.29704365400266, -6.697591068039401, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_12" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.7342657, 0, 0, -0.6788622)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (243.00482440835185, -6.801555529261577, 111.94032486949959)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (311.45072688387154, -2.1535785321141248, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_18" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6853842, 0, 0, -0.7281816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (358.624644179808, -0.7530841005464026, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (323.0996066801008, 1.4535476089977237, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (196.40017379063102, 1.4535476089959047, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (72.34090331127845, 1.4535476089886288, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+
+                    def Xform "Boxes_middle_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A06_42cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (84.67532470929746, 26.461137970382197, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (35.90264702978766, 0, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (85.34908457499296, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.03489294274277, 26.461137970384016, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.70865280849193, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.0722195025828, 26.46113797038379, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.74597936836471, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (219.7512485621928, -17.466163732743553, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.43082910531393, -13.928348270198967, 182.45817497166922)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.74897427572705, -13.928348270198285, 182.45817497166888)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.06939373260775, -17.46616373274219, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (214.44713461961874, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6946584, 0, 0, 0.7193398)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (247.06652430264785, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A10_26x56x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A10_26x56x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (-0.5108593, 0.48841783, 0.5113199, 0.48889953)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.40509841328458, 19.985832807302813, 174.87195349752247)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (359.860074670416, 5.482722610354358, 162.44046030859622)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (306.0175540537066, -13.928348270195329, 189.94370446278873)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A07_26x32x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A07_26x32x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.51425743, 0.4853239, -0.51425743, 0.4853239)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (356.5077402032548, -20.740471582322243, 175.17092759767525)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "SM_RackShelf_01_bottom" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 0.5019336999634182)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_02_middle" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 1.621231693339564)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_03_top" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 2.3797340973946737)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_top_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "SM_CardBoxB_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.7148463, 0, 0, -0.6992816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.38412385815102823, -0.13344975692244532, 2.5307616773583983)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1487" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.9093711308247769, -0.08434291976912078, 2.5328168170207173)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxB_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (1.7523971362332595, -0.1719544522083325, 2.5341660547927742)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1489" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (2.282164110655792, -0.05422071581227783, 2.5362211944550923)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1490" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.71325046, 0, 0, -0.70090926)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.0044745427384534, -0.04084617046505912, 2.5315676852226034)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1491" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6990028, 0, 0, -0.71511894)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.5569777895367345, -0.031202176089962563, 2.531567685222603)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (0.6963648124810149, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (2.029554371523961, -1.4210854715202004e-14, 2.3866540427106666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (3.287328011067455, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+
+                def "SM_Rackshield_03" (
+                    prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_Rackshield_02.usd@
+                )
+                {
+                    token visibility = "invisible"
+                    quatf xformOp:orient = (0.71325046, 0, 0, 0.70090926)
+                    float3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, -4, 0)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                }
+
+                def Xform "SmallRack_02"
+                {
+                    quatd xformOp:orient = (0.7071067811865475, 0, 0, -0.7071067811865476)
+                    double3 xformOp:scale = (1, 1, 1)
+                    double3 xformOp:translate = (0, 0, 3.0006323042590624)
+                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                    def "SM_RackFrame_03" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        token visibility = "inherited"
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackFrame_04" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackFrame_03.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (4.0006634871938545, 0, 0.000001122192088587326)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_bottom_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A08_62cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9993974, 0, 0, 0.034710847)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (40.46504398171783, -7.419767967286134, 64.99499400659295)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70491725, 0, 0, -0.70928955)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (104.33801512317632, -5.084390023213928, 64.99499400659472)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (165.64838347715613, -9.147466220872047, 64.99499400659616)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.012979848, 0, 0, -0.9999158)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (230.3496583554156, -6.547160180675746, 64.99499400659687)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_17" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.9992802, 0, 0, -0.037934855)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (295.82940226366645, -0.7530841005445836, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_16" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.9999907, 0, 0, 0.004312373)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (47.355885283954194, -9.43510638510179, 111.94032486950064)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_14" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (178.3649049700025, -3.737098795932752, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_15" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.04789455, 0, 0, -0.9988524)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (110.29704365400266, -6.697591068039401, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_12" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.7342657, 0, 0, -0.6788622)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (243.00482440835185, -6.801555529261577, 111.94032486949959)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A15_51x63x33cm_PR_NVD_13" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A15_51x63x33cm_PR_NVD_01.usd@
+                        )
+                        {
+                            token visibility = "invisible"
+                            quatf xformOp:orient = (0.69157434, 0, 0, 0.7223053)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (311.45072688387154, -2.1535785321141248, 111.94032486949958)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A08_62cm_PR_NVD_18" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A08_62cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6853842, 0, 0, -0.7281816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (358.624644179808, -0.7530841005464026, 64.99499400660005)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (323.0996066801008, 1.4535476089977237, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (196.40017379063102, 1.4535476089959047, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (1, 1, 1)
+                            double3 xformOp:translate = (72.34090331127845, 1.4535476089886288, 50.30464575372333)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+
+                    def Xform "Boxes_middle_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (0.01, 0.01, 0.01)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "CubeBox_A06_42cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (84.67532470929746, 26.461137970382197, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (35.90264702978766, 0, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (85.34908457499296, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.03489294274277, 26.461137970384016, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (127.70865280849193, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.0722195025828, 26.46113797038379, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A06_42cm_PR_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A06_42cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70090926, 0, 0, 0.71325046)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (169.74597936836471, -16.16404845925649, 162.44046030859965)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (219.7512485621928, -17.466163732743553, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.43082910531393, -13.928348270198967, 182.45817497166922)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_04" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.74897427572705, -13.928348270198285, 182.45817497166888)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (277.06939373260775, -17.46616373274219, 162.0144715281423)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (214.44713461961874, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A08_31x30x8cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A08_31x30x8cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6946584, 0, 0, 0.7193398)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (247.06652430264785, -20.255957898812085, 202.22243175291626)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A10_26x56x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A10_26x56x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (-0.5108593, 0.48841783, 0.5113199, 0.48889953)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (220.40509841328458, 19.985832807302813, 174.87195349752247)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "CubeBox_A07_52cm_PR_NVD_03" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Cube_A/CubeBox_A07_52cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (359.860074670416, 5.482722610354358, 162.44046030859622)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A12_56x56x20cm_PR_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A12_56x56x20cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (306.0175540537066, -13.928348270195329, 189.94370446278873)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "FlatBox_A07_26x32x11cm_PR_NVD_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Cardboard_Boxes/Flat_A/FlatBox_A07_26x32x11cm_PR_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.51425743, 0.4853239, -0.51425743, 0.4853239)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (356.5077402032548, -20.740471582322243, 175.17092759767525)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+                    }
+
+                    def "SM_RackShelf_01_bottom" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 0.5019336999634182)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_02_middle" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 1.621231693339564)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def "SM_RackShelf_03_top" (
+                        prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_RackShelf_01.usd@
+                    )
+                    {
+                        quatf xformOp:orient = (1, 0, 0, 0)
+                        float3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (2.001184309800891, 0, 2.3797340973946737)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                    }
+
+                    def Xform "Boxes_top_shelf"
+                    {
+                        quatd xformOp:orient = (1, 0, 0, 0)
+                        double3 xformOp:scale = (1, 1, 1)
+                        double3 xformOp:translate = (0, 0, 0)
+                        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+                        def "SM_CardBoxB_01" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.7148463, 0, 0, -0.6992816)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.38412385815102823, -0.13344975692244532, 2.5307616773583983)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1487" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (0.9093711308247769, -0.08434291976912078, 2.5328168170207173)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxB_02" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxB_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (1.7523971362332595, -0.1719544522083325, 2.5341660547927742)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1489" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.69393784, 0, 0, 0.7200349)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (2.282164110655792, -0.05422071581227783, 2.5362211944550923)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1490" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.71325046, 0, 0, -0.70090926)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.0044745427384534, -0.04084617046505912, 2.5315676852226034)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "SM_CardBoxA_01_1491" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/Isaac/4.2/Isaac/Environments/Simple_Warehouse/Props/SM_CardBoxA_01_1487.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (0.6990028, 0, 0, -0.71511894)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:translate = (3.5569777895367345, -0.031202176089962563, 2.531567685222603)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_05" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (0.6963648124810149, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_06" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (2.029554371523961, -1.4210854715202004e-14, 2.3866540427106666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+
+                        def "RackablePallet_A01_PR_V_NVD_07" (
+                            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shipping/Pallets/Plastic/Rackable_A/RackablePallet_A01_PR_V_NVD_01.usd@
+                        )
+                        {
+                            quatf xformOp:orient = (1, 0, 0, 0)
+                            float3 xformOp:scale = (1, 1, 1)
+                            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+                            double3 xformOp:translate = (3.287328011067455, -1.4210854715202004e-14, 2.386654042710666)
+                            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+
+                            over "Geometry"
+                            {
+                                over "SM_RackablePallet_A01_01"
+                                {
+                                    quatf xformOp:orient = (1, 0, 0, 0)
+                                    float3 xformOp:scale = (1, 1, 1)
+                                    double3 xformOp:translate = (0, 0, 0)
+                                    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    def Xform "Workspace_desks"
+    {
+        quatd xformOp:orient = (1, 0, 0, 0)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def "HeavyDutyPackingTable_A04_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Tables/HeavyDutyPacking_A/HeavyDutyPackingTable_A04_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (2.581991072325137, -34.81489944458008, 9.937733693732298e-7)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "HeavyDutyPackingTable_A04_02" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Tables/HeavyDutyPacking_A/HeavyDutyPackingTable_A04_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (5.021966090814295, -34.81489944458008, 9.937733693732298e-7)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "TableMetal_A02_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Tables/Metal_A/TableMetal_A02_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (1.2714369111831043, -32.627879171438636, 0.0000016343866127144224)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "StainlessSteelStool_A01_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Seating/Stools/StainlessSteel_A/StainlessSteelStool_A01_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (2.413820432010045, -33.28857886065962, 0.0000013311212265776362)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "LabWorkbench_A06_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Workbenches/LabWorkbench_A/LabWorkbench_A06_01.usd@
+        )
+        {
+            quatf xformOp:orient = (0.71111465, 0, 0, 0.7030761)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (0.9997087121009827, -37.62240982055664, 8.401015065828688e-7)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "HeavyDutyPackingTable_C04_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Tables/HeavyDutyPacking_C/HeavyDutyPackingTable_C04_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (3.0281621354113133, -39.807705656465146, 0.0000010344467051837112)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "HeavyDutyPackingTable_C04_02" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Furnishing/Tables/HeavyDutyPacking_C/HeavyDutyPackingTable_C04_01.usd@
+        )
+        {
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (5.489146180386022, -39.807705656465146, 0.000001034446705183711)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "Rack_N04_PR_NVD_01" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shelving/Racks/Rack_N/Rack_N04_PR_NVD_01.usd@
+        )
+        {
+            quatf xformOp:orient = (0.7038165, 0, 0, 0.71038187)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (1.084992602531374, -41.66150087854016, 0.000001491317408230941)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "Rack_N04_PR_NVD_02" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shelving/Racks/Rack_N/Rack_N04_PR_NVD_01.usd@
+        )
+        {
+            quatf xformOp:orient = (0.7038165, 0, 0, 0.71038187)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (1.1071651033286065, -43.83050460638964, 0.000001491317408230941)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "Rack_N04_PR_NVD_03" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shelving/Racks/Rack_N/Rack_N04_PR_NVD_01.usd@
+        )
+        {
+            quatf xformOp:orient = (0.9999437, 0, 0, -0.010613652)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (3.0768137696459807, -30.44125691033947, 0.0000014913173425057382)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+
+        def "Rack_N04_PR_NVD_04" (
+            prepend payload = @http://omniverse-content-production.s3-us-west-2.amazonaws.com/Assets/DigitalTwin/Assets/Warehouse/Shelving/Racks/Rack_N/Rack_N04_PR_NVD_01.usd@
+        )
+        {
+            quatf xformOp:orient = (0.9999437, 0, 0, -0.010613652)
+            float3 xformOp:scale = (1, 1, 1)
+            double3 xformOp:scale:unitsResolve = (0.01, 0.01, 0.01)
+            double3 xformOp:translate = (4.723608736957585, -30.485537213940116, 0.0000014913173425057384)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale", "xformOp:scale:unitsResolve"]
+        }
+    }
+}
+
+def Xform "Environment"
+{
+    quatd xformOp:orient = (1, 0, 0, 0)
+    double3 xformOp:scale = (1, 1, 1)
+    double3 xformOp:translate = (0, 0, 0)
+    uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+    def DistantLight "defaultLight" (
+        prepend apiSchemas = ["ShapingAPI"]
+    )
+    {
+        float inputs:angle = 1
+        float inputs:intensity = 3000
+        float inputs:shaping:cone:angle = 180
+        float inputs:shaping:cone:softness
+        float inputs:shaping:focus
+        color3f inputs:shaping:focusTint
+        asset inputs:shaping:ies:file
+        quatd xformOp:orient = (0.6532814824381883, 0.27059805007309856, 0.27059805007309856, 0.6532814824381883)
+        double3 xformOp:scale = (1, 1, 1)
+        double3 xformOp:translate = (0, 0, 0)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+}
+
+over "Render" (
+    hide_in_stage_window = true
+)
+{
+    over "OmniverseKit"
+    {
+        over "HydraTextures"
+        {
+            over "omni_kit_widget_viewport_ViewportTexture_0"
+            {
+                over "PostRender"
+                {
+                    over "SDGPipeline"
+                    {
+                        custom uint64 graph:variable:__computeParams (
+                            customData = {
+                                token scope = "private"
+                            }
+                            displayName = "__computeParams"
+                        )
+                        custom uint64 graph:variable:__cudaInteropState (
+                            customData = {
+                                token scope = "private"
+                            }
+                            displayName = "__cudaInteropState"
+                        )
+                        custom uint64 graph:variable:__cudaStream (
+                            customData = {
+                                token scope = "private"
+                            }
+                            displayName = "__cudaStream"
+                        )
+                        custom uint64 graph:variable:__rpInteropState (
+                            customData = {
+                                token scope = "private"
+                            }
+                            displayName = "__rpInteropState"
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+

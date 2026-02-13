@@ -1,0 +1,72 @@
+##### Demo flow
+
+event system restart onStart() {
+  if not exists !Initialize(_state == "Complete") {
+    !Initialize();
+  }
+}
+
+skill demo/test_flow() {
+  !TestFlow();
+}
+
+## An example flow
+## 1. Initialize the resource pool the first time run.  Creates a pool of two robots.
+## 2. Start three jobs simultaneously.  Since there are only two robots, two jobs will start immediately and
+##    the third will start as soon as on of the first two jobs finish.
+
+rule !TestFlow() plan {
+  parallel [
+    !Runjob(job -> "job 1"),
+    !Runjob(job -> "job 2"),
+    !Runjob(job -> "job 3")
+  ];
+  !SendDone();
+}
+
+rule !Runjob($job) plan {
+  !AllocateAmr($job) => { $member } !Simjob($job, $member);
+}
+
+# Use the resource manager to checkout a robot to assign to this job.
+delegate !AllocateAmr($job) {
+  let { $member } = pncp request resource_pool/checkout(pool -> "robots") in {
+    pncp status(message -> "Starting " + $job + " with " + $member);
+    return { $member };
+  }
+}
+
+# Simulate the actual job with a random delay, and checkin the robot when done.
+rule !Simjob($job, $member) plan {
+  let $delay = 3 + RandomInt(6);
+  wait $delay sec;
+  !EndJob($job);
+  !ReleaseAmr($job, $member);
+}
+
+task !EndJob($job) {
+  pncp status(message-> "Finished " + $job);
+}
+
+delegate !ReleaseAmr($job, $member) is resource_pool/checkin(pool -> "robots", $member);
+
+task !SendDone() {
+  pncp response(status -> "done");
+}
+
+##### Initialization
+
+# Set up a resource pool with two members
+rule !Initialize() plan {
+  !CreatePool(pool -> "robots");
+  parallel [
+    !CreatePoolMember(pool -> "robots", member -> "amr-0"),
+    !CreatePoolMember(pool -> "robots", member -> "amr-1")
+  ];
+}
+
+# If deployed together, we may reach here before the resource manager is ready.
+# The catch block will retry if the request fails
+delegate !CreatePool($pool) is resource_pool/new_pool($pool);
+
+delegate !CreatePoolMember($pool, $member) is resource_pool/add_member($pool, $member);

@@ -1,0 +1,8 @@
+id: spot
+version: 0.1.0
+simulation: true
+insecure: true
+versions:
+  paraflow: 3.0.0-rc.31
+  paranet: 2.4.4-rc.5
+  paracord: 0.14.0-rc.10

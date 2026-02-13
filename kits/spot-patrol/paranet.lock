@@ -1,0 +1,7 @@
+version: '1'
+entries:
+  facility:
+    id: facility
+    version: 0.1.1
+    source: ./
+    kind: Root

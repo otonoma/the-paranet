@@ -1,0 +1,9 @@
+# Llm related
+python-dotenv
+langchain
+langchain-community
+langchain-openai
+langchain-core
+
+# Paranet
+paranet_agent

@@ -1,0 +1,12 @@
+id: warehouse
+version: 0.0.1
+actors:
+  - name: sim_worker_manager
+    version: 0.0.1
+    paraflow: sim_worker_manager.paraflow
+    path: ./actors/sim_worker_manager
+
+models:
+  - ./skills/spot.skill.yaml
+  - ./skills/franka.skill.yaml
+  - ./skills/sim_worker.skill.yaml

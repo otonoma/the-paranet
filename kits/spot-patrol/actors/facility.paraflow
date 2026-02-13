@@ -1,0 +1,58 @@
+
+skill facility/request_inspection($row int, $col int) is !PerformInspection($col, $row);
+
+rule !PerformInspection($col, $row) plan {
+  let $uid = Uuid();
+  !PatrolDiscovery($uid, $row, $col);
+  !QueryPatrolStatus($uid, $row, $col);
+  !AllocateInspection($uid, $row, $col);
+}
+
+delegate !PatrolDiscovery($uid, $row, $col) {
+   let { $providers(id, kind) } = pncp request skill/match_providers(subject -> "patrol", action -> "inspect_availability", data -> { col: $col, row: $row } ) in {
+    foreach $providers(id: $provider, $kind) {
+      insert inspection_dispatch($uid, $provider);
+    }
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+rule !QueryPatrolStatus($uid, $row, $col) plan {
+  plan foreach inspection_dispatch(uid == $uid, $provider) {
+    !RequestAvailability($uid, $row, $col, $provider);
+  }
+}
+
+delegate !RequestAvailability($uid, $row, $col, $provider) {
+    let { $distance, $status } = pncp request patrol/inspect_availability($col, $row) to $provider in {
+    if $status == "available" {
+      update inspection_dispatch(uid == $uid, provider == $provider, distance: $distance);
+    }
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+rule !AllocateInspection($uid, $row, $col) plan {
+  plan with priority_inspection_dispatch(uid == $uid, $provider) {
+    !RequestInspection($uid, $row, $col, $provider);
+  } else {
+    !ErrorResponse(message -> "No available units");
+  }
+}
+
+delegate !RequestInspection($uid, $row, $col, $provider) {
+  let { $status } = pncp request patrol/inspect_area($col, $row) to $provider in {
+    pncp response($status);
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+task !ErrorResponse($message) {
+  pncp error($message);
+}

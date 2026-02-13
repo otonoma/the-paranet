@@ -1,0 +1,20 @@
+table create 
+    test_data(
+        id int auto,
+        text text
+    );
+
+event system restart initTestData() {
+    # Creation of the task will ensure we only do this once.
+    !initTestDataTask();
+}
+
+task !initTestDataTask() {
+    insert test_data(id: 1, text: "Hello, paranet!");
+}
+
+skill hello_world_sql/fetch() {
+    with test_data(id == 1, $text) {
+        return { text: $text };
+    }
+}

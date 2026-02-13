@@ -1,0 +1,71 @@
+## Direct conversation skill
+skill chatgpt/direct_chat($prompt string) is !gptAskDirect($prompt);
+
+delegate !gptAskDirect($prompt) {
+  let { response: $response } = pncp request chatgpt_py/direct_chat(prompt -> $prompt) in {
+    pncp response(response -> $response);
+  }
+}
+
+## Medical conversation skill
+skill chatgpt/medical_chat($prompt string) is !gptMedicalAsk($prompt);
+
+delegate !gptMedicalAsk($prompt) {
+  let { response: $response } = pncp request chatgpt_py/medical_chat(prompt -> $prompt) in {
+    pncp response(response -> $response);
+  }
+}
+
+## Email classification and routing system
+skill email_classifier/prioritize($subject string, $body string) is !processEmail($subject, $body);
+
+# Main processing rule
+rule !processEmail($subject, $body) plan {
+  !classifyWithLLM($subject, $body);
+  !executeRouting($subject, $body);
+}
+
+# LLM classification
+delegate !classifyWithLLM($subject, $body) {
+  let { text: $classification } = pncp request chatgpt_py/template_predict(
+    template -> "You are an email classifier. Classify the urgency of this email with exactly one of: Urgent, Normal, Low-Priority.\n\nSubject: {subject}\nBody: {body}\n\nClassification:",
+    values -> JsonString({subject: $subject, body: $body})
+  ) in {
+    log info(`Email classified as: $classification`);
+    return { priority: $classification };
+  }
+}
+
+# Execute routing based on classification
+rule !executeRouting($subject, $body), !classifyWithLLM(subject == $subject, body == $body, priority: $priority) plan {
+  log warn(`Routing email with priority: $priority`);
+  plan if MatchRe(".*[Uu]rgent.*", $priority) {
+    !executeUrgentActions($subject);
+  } else plan if MatchRe(".*[Nn]ormal.*", $priority) {
+    !executeNormalActions($subject);
+  } else plan if MatchRe(".*[Ll]ow.*[Pp]riority.*", $priority) {
+    !executeLowPriorityActions($subject);
+  }
+}
+
+# Action tasks
+task !executeUrgentActions($subject) {
+  # TODO: Implement urgent actions (e.g., notify manager, escalate immediately)
+  log warn("URGENT: Executing high-priority actions");
+  let $message = `URGENT: Escalated to management - $subject`;
+  pncp response($message);
+}
+
+task !executeNormalActions($subject) {
+  # TODO: Implement normal actions (e.g., assign to support queue, standard workflow)
+  log info("NORMAL: Executing standard actions");
+  let $message = `NORMAL: Added to support queue - $subject`;
+  pncp response($message);
+}
+
+task !executeLowPriorityActions($subject) {
+  # TODO: Implement low-priority actions (e.g., batch process, scheduled review)
+  log info("LOW: Executing background actions");
+  let $message = `LOW: Scheduled for processing - $subject`;
+  pncp response($message);
+}

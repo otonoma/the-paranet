@@ -1,0 +1,159 @@
+########## Resource Manager Actor
+##
+## Generic actor that controls access to one or more resource pools that other actors can call to request
+## exclusive use of a resource for some time.  It's implemented as an extension of the semaphore pattern.
+##
+## The following skills are available:
+## resource_pool/new_pool(pool) - create a new resource pool.
+## resource_pool/reset_pool(pool) - cancel all pending checkout requests, and reset all members to the available state.
+## resource_pool/pool_status(pool) - return a list of members with available state.
+## resource_pool/add_member(pool, member) - insert an allocatable resource to a given pool.
+## resource_pool/remove_member(pool, member) - removes a allocatable resource from a given pool.
+## resource_pool/checkout(pool) - check out a member from the given pool as soon as one is available.
+## resource_pool/checkin(pool, member) - check in a previously checked out member from the given pool, making it available again.
+##
+
+##### SQL Data
+table create 
+  resource_pool (
+    id int auto,
+    name text
+  );
+
+table create 
+  pool_member (
+    id int auto,
+    pool_id int,
+    name text,
+    available int
+  );
+
+skill resource_pool/new_pool($pool string) {
+  with resource_pool(name == $pool) {
+    !ExistingPoolError(cid -> Conversation(), $pool);
+  } else {
+    insert resource_pool(name: $pool);
+    return { status: "ok" };
+  }
+}
+
+skill resource_pool/reset_pool($pool string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    !ResetPool(cid -> Conversation(), $pool_id);
+  } else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+skill resource_pool/pool_status($pool string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    let $members(name, available) = select pool_member(pool_id == $pool_id, name, available);
+    return { $members };
+  }  else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+skill resource_pool/add_member($pool string, $member string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    insert pool_member(name: $member, $pool_id, available: 1);
+    return { status: "ok" };
+  } else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+skill resource_pool/remove_member($pool string, $member string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    delete pool_member(name == $member, pool_id == $pool_id);
+    return { status: "ok" };
+  } else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+skill resource_pool/checkout($pool string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    !CheckoutMember(cid -> Conversation(), $pool_id);
+  } else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+skill resource_pool/checkin($pool string, $member string) {
+  with resource_pool(name == $pool, id: $pool_id) {
+    with pool_member(name == $member, pool_id == $pool_id, $id) {
+      !Checkin(cid -> Conversation(), $pool_id, $id, $member);
+      return { status: "ok" };
+    } else {
+      !InvalidMemberError(cid -> Conversation(), $pool, $member);
+    }
+  } else {
+    !InvalidPoolError(cid -> Conversation(), $pool);
+  }
+}
+
+rule !CheckoutMember($cid, $pool_id) plan {
+  !TryCheckout($cid, $pool_id);
+  !CompleteCheckout($cid, $pool_id);
+}
+
+task !TryCheckout($cid, $pool_id) {
+  with pool_member(pool_id == $pool_id, available <> 0, $id, $name) {
+    update pool_member(id == $id, available: 0);
+    return { available: 1, member: $name };
+  } else {
+    return { available: 0 };
+  }
+}
+
+rule !CompleteCheckout($cid, $pool_id) plan {
+  plan with !TryCheckout(cid == $cid, available <> 0, $member) {
+    !SendCheckout($cid, $member);
+  } else {
+    !WaitFor($cid, $pool_id);
+  }
+}
+
+task !Checkin($cid, $pool_id, $id, $member) {
+  # The Checkin task is executed within the resource_pool/checkin skill workflow.
+  # By default, only goals within the current workflow are visible.  However, we want to find
+  # other actors waiting for a resources and the that !WaitFor goal will be part of another
+  # workflow (i.e. that actor's resource_pool/checkout skill request).
+  # Code executed within a globally block have global visibility of goals which allows us to find
+  # and assert the !WaitFor goals within other workflows.
+  globally {
+    with !WaitFor(_state <> "Complete", pool_id == $pool_id, cid: $wait_cid) {
+      assert !WaitFor(cid -> $wait_cid, pool_id -> $pool_id);
+      # Use the saved conversation ID to respond to waiting actor's request.
+      pncp response($member) to $wait_cid;
+    } else {
+      update pool_member(pool_id == $pool_id, id == $id, available: 1);
+    }
+  }
+}
+
+task !ResetPool($cid, $pool_id) {
+  foreach !WaitFor(_state <> "Complete", pool_id == $pool_id, cid: $wait_cid) {
+    assert !WaitFor(cid -> $wait_cid, $pool_id);
+    pncp error(message -> "Pool reset") to $wait_cid;
+    update pool_member(pool_id == $pool_id, available: 1);
+  }
+  pncp response(status -> "ok");
+}
+
+task !SendCheckout($cid, $member) {
+  pncp response($member) to $cid;
+}
+
+task !InvalidPoolError($pool) {
+  pncp error(message -> "Undefined resource pool " + $pool);
+}
+
+task !ExistingPoolError($pool) {
+  pncp error(message -> "Resource pool already exists " + $pool);
+}
+
+task !InvalidMemberError($pool, $member) {
+  pncp error(message -> "Undefined " + $pool + " pool member " + $member);
+}

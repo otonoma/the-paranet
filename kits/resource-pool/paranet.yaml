@@ -1,0 +1,13 @@
+id: resource-demo
+version: 1.0.0
+name: Resource Pool Demo
+actors:
+  - name: demo
+    version: 1.0.0
+    path: ./actors
+    paraflow: demo.paraflow
+  - id: resource-mgr
+    name: Resource Manager
+    version: 1.0.0
+    path: ./actors
+    paraflow: resource-mgr.paraflow

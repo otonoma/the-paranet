@@ -1,0 +1,29 @@
+id: facility
+version: 0.1.1
+simulation: false
+actors:
+  - name: facility
+    version: 0.1.0
+    paraflow: facility.paraflow
+    sql:
+      - facility.sql
+    path: ./actors
+  - name: spot_000
+    version: 0.1.0
+    paraflow: spot.paraflow
+    sql:
+      - spot.sql
+    path: ./actors
+    env:
+      SPOT_ID: "000"
+  - name: spot_001
+    version: 0.1.0
+    paraflow: spot.paraflow
+    sql:
+      - spot.sql
+    path: ./actors
+    env:
+      SPOT_ID: "001"
+models:
+  - ./models/spot.skill.yaml
+  - ./models/spot_phy.skill.yaml

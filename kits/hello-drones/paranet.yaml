@@ -1,0 +1,18 @@
+name: drone_orchestration
+id: drone_orchestration
+version: 1.0.0
+simulation: false
+insecure: true
+actors:
+  - name: random_movements
+    version: 1.0.0
+    path: ./drone_orchestration
+    paraflow: random_movements.paraflow
+  - name: write_words
+    version: 1.0.0
+    path: ./drone_orchestration
+    paraflow: write_words.paraflow
+  - name: write_phrases
+    version: 1.0.0
+    path: ./drone_orchestration
+    paraflow: write_phrases.paraflow

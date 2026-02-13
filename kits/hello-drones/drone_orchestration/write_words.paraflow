@@ -1,0 +1,45 @@
+skill drone_swarm/write_word($word string, $width_meters double, $height_z double) is 
+  !WriteWord($word, $width_meters, $height_z);
+
+rule !WriteWord($word, $width_meters, $height_z) plan {
+  !GetNumDrones() => { $num_drones } !FormWordWithDrones($word, $num_drones, $width_meters, $height_z);
+}
+
+delegate !GetNumDrones() {
+  let { num_drones: $count } = pncp request drone_swarm/get_num_drones() in {
+    log info(`Retrieved drone count: $count`);
+    return { num_drones: $count };
+  }
+}
+
+rule !FormWordWithDrones($word, $num_drones, $width_meters, $height_z) plan {
+  !CalculatePositions($word, $num_drones, $width_meters, $height_z);
+  !AssignDronesToPositions($word, $num_drones, $width_meters, $height_z);
+}
+
+delegate !CalculatePositions($word, $num_drones, $width_meters, $height_z) {
+  let { positions: $positions } = pncp request word_formation/calculate_positions(
+    word -> $word,
+    num_drones -> $num_drones,
+    width_meters -> $width_meters,
+    height_z -> $height_z
+  ) in {
+    return { positions: $positions };
+  }
+}
+
+rule !AssignDronesToPositions($word, $num_drones, $width_meters, $height_z), 
+     !CalculatePositions(word == $word, positions: $positions) plan {
+  plan foreach $positions(drone_id: $drone_id, x: $x, y: $y, z: $z) {
+    wait 5 sec;
+    !SetDroneGoal($drone_id, $x, $y, $z);
+  }
+  !SendWriteWordComplete($word);
+}
+
+delegate !SetDroneGoal($drone_id, $x, $y, $z) is 
+  drone_swarm/set_goal($drone_id, $x, $y, $z);
+
+task !SendWriteWordComplete($word) {
+  pncp response(status -> "success", message -> `Word formation complete: $word`);
+}

@@ -1,0 +1,160 @@
+# Table to persist nodes, and the colors they provide.
+# For local callback, for demonstration.
+table create color_providers(
+  provider string,
+  kind string,
+  color string
+)
+
+# An On-start trigger that occurs when the node is brought online. 
+# Via the !IdentifyAll(), it determines all nodes on the paranet, and inserts them into the table.
+event system restart trigger() {
+  if not exists !MainLoop(id == "1") {
+    new !MainLoop(id -> "1");
+  }
+}
+
+rule !MainLoop() plan {
+  !ResetDB();
+  !Discover() => {providers: $providers}
+  !GetColors($providers);
+}
+
+# Identify all accessible nodes, and their color.
+skill palette/identify_all() 
+  is !IdentifyAll();
+
+rule !IdentifyAll() plan {
+  !Discover() => {providers: $providers}
+  !GetColors($providers);
+  !ListAllColors();
+}
+
+# Use the magic skill "match_providers" to hunt for any available providers of the "color_tools/identify_self" skill. 
+# Since all nodes are identical aside from the env var that init's them, they all have the exported skill seen above.
+# This step only identifies available nodes, not their color yet.
+delegate !Discover() {
+  let { $providers(id, kind) } = pncp request skill/match_providers(
+    subject -> "color_tools", 
+    action -> "identify_self",
+    data -> {}
+  ) in {
+    return { $providers };
+    }
+}
+
+# Plan to extract colors.
+rule !GetColors($providers) plan {
+  plan foreach $providers(id: $provider, kind: $kind) {
+    !GetColorFrom($provider);
+    !ManageColors($provider, $kind);
+  }
+}
+
+# Note the "to $provider"... this phrase addresses the node we are speaking to.
+# The result of identify_self is appended to the goal body of !GetColorFrom(). We will use it next.
+delegate !GetColorFrom($provider) is color_tools/identify_self() to $provider;
+
+# Insert the enriched data to the table.
+# Note that our declaration of !GetColorFrom() now includes $MyColor, which is the returned var from the $Provider's identify_self().
+task !ManageColors($provider, $kind) {
+  with !GetColorFrom(provider == $provider, $MyColor) {
+    insert color_providers(provider: $provider, kind: $kind, color: $MyColor);
+  }
+}
+
+# Utility, attempt to list all providers and their colors.
+skill palette/list_all_colors() {
+    !ListAllColors();
+}
+
+task !ListAllColors() {
+    let $color_data(provider, kind, color) = select color_providers(provider, kind, color);
+    pncp response(message -> $color_data);
+}
+
+skill palette/reset_available_colors() {
+    !ResetAvailableColors();
+}
+
+rule !ResetAvailableColors() plan {
+    !ResetDB();
+    !MessageDbReset();
+}
+
+task !ResetDB() {
+    delete color_providers(color <> "");
+}
+
+task !MessageDbReset() {
+    pncp response(message -> "Color provider db emptied.");
+}
+
+
+# A demonstration method to show the collaboration of nodes, mixing two colors sourced from federated color nodes.
+skill palette/color_blend($color_1 string, $color_2 string) {
+  !PlanMix($color_1, $color_2);
+}
+
+# $seed is used to ensure unique goal trees. Goals are defined as their (goal name, [arguments...]), so the edge case of asking for the same color twice would "look" like the same goal tree without the seed.
+rule !PlanMix($color_1, $color_2) plan {
+  !VerifyColor(color -> $color_1, seed -> 1);
+  !VerifyColor(color -> $color_2, seed -> 2);
+  !Blend($color_1, $color_2);
+}
+
+rule !VerifyColor($color, $seed) plan {
+  plan with color_providers(color == $color, $provider) {
+    !VerifyAvail($provider, $seed);
+    !InStock($provider, $seed);
+  }
+}
+
+# Check that user input color is among available nodes. Else, error out the opaque goal InStock.
+# An opaque goal is used to gate workflow progress/success without including additional business logic.
+delegate !VerifyAvail($provider, $seed) {
+  let { $MyColor, $color_in_stock } = pncp request color_tools/share_color() to $provider in {
+    if $color_in_stock {
+      assert !InStock($provider, $seed);
+      pncp status(message -> `$MyColor in stock.`);
+    } else {
+      fail !InStock($provider, $seed);
+      pncp error(message -> `$MyColor unavailable.`);
+    }
+  }
+}
+
+# Complete the blend. At this point we have assured availability.
+# A possible augmentation of this work would be for the color nodes to determine their blend result, and share it back to the painter.
+task !Blend($color_1, $color_2) {
+  let $result = "";
+  if $color_1 == $color_2 {
+    let $result = $color_1;
+  } else {
+      if $color_1 == "red" {
+        if $color_2 == "blue" {
+          let $result = "purple";
+        }
+        if $color_2 == "yellow" {
+          let $result = "orange";
+        }
+      }
+      if $color_1 == "blue" {
+        if $color_2 == "red" {
+          let $result = "purple";
+        }
+        if $color_2 == "yellow" {
+          let $result = "green";
+        }
+      }
+      if $color_1 == "yellow" {
+        if $color_2 == "red" {
+          let $result = "orange";
+        }
+        if $color_2 == "blue" {
+          let $result = "green";
+        }
+      }
+  }
+  pncp response(message -> `Result: $result`);
+}

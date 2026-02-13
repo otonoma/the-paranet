@@ -1,0 +1,59 @@
+## ## ## ## ## ## ERP Worflow  ## ## ## ## ## ##
+
+## ## Cancel workflows in progress  ## ##
+skill demo/reset_all() is !ResetDemo();
+
+task !ResetDemo() {
+foreach !RunDemo(_state == "Active", $cid) {
+    cancel !RunDemo(cid -> $cid);
+  }
+  foreach !RunDemo(_state == "Planned", $cid) {
+    cancel !RunDemo(cid -> $cid);
+  }
+  return { message: "reset" };
+}
+
+## ## request to start the workflow  ## ##
+skill demo/start($uid string) is !AcceptStartDemo(uid -> $uid);
+
+rule !AcceptStartDemo($uid) plan {
+  plan if not exists !RunDemo(_state == "Active") {
+    !RunDemo(cid -> $uid);
+  } else {
+    !Error(cid -> $uid, message -> "Workflow in progress");
+  }
+}
+
+## ## start the workflow  ## ##
+skill demo/run_workflow($uid string) is !RunDemo(cid -> $uid);
+
+rule !RunDemo($cid) plan {
+  !UpdateTicketStatus(uid -> $cid, status -> "inprogress");
+  !Wait(cid -> Uuid());
+  !UpdateTicket(uid -> $cid, comment -> "First action in progress");
+  !Wait(cid -> Uuid());
+  !UpdateTicket(uid -> $cid, comment -> "Second action in progress");
+  !UpdateTicketStatus(uid -> $cid, status -> "done");
+  !AutoStart($cid);
+}
+
+rule !AutoStart($cid) plan {
+  
+  !ReRunWorkflow(uid -> Uuid());
+}
+
+task !Error($cid, $message) {
+  pncp response($message) to $cid;
+}
+
+######################################## erp communication
+
+delegate !UpdateTicketStatus($uid, $status) {
+  pncp request erp/transition_ticket($uid, $status);
+}
+
+delegate !UpdateTicket($uid, $comment) is erp/update_ticket($uid, $comment) return {$status};
+
+delegate !ReRunWorkflow($uid) is erp/run_next_work($uid) return {$status};
+
+delegate !Wait($cid) is server/wait($cid) return {$status};

@@ -1,0 +1,15 @@
+id: spot@1.0.0
+skills:
+- subject: patrol
+  actions:
+  - action: assignment
+    input:
+      circuit: paranet:object
+  - action: inspect_area
+    input:
+      row: paranet:int
+      col: paranet:int
+  - action: inspect_availability
+    input:
+      row: paranet:int
+      col: paranet:int

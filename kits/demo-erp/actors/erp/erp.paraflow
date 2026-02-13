@@ -1,0 +1,125 @@
+## ## ## ## ## ## ERP JIRA Worflow  ## ## ## ## ## ##
+
+## ## Jira webhook subscription  ## ##
+event processPayloadWebhook($issue json) {
+  let {
+    $key
+  } = JsonParse($issue);
+  let $uid = Uuid();
+  insert erp_workflow(cid: $uid, ticket_id: $key, status: "pending");
+  !InitWorkflow($uid);
+}
+
+rule !InitWorkflow($uid) plan {
+  !RunWorkflow($uid);
+}
+
+delegate !RunWorkflow($uid) {
+  pncp request demo/start($uid);
+}
+
+## ## Jira ticket creation  ## ##
+skill erp/create_ticket($uid string) is !Create(uid -> $uid);
+
+rule !Create($uid) plan {
+  !CreateTicket(cid -> $uid);
+}
+
+delegate !CreateTicket($cid) {
+  let { $ticket } = pncp request jira/create_ticket(conv -> $cid) in {
+    insert erp_workflow(cid: $cid, ticket_id: $ticket, status: "created");
+    pncp response(status -> "OK");
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+## ## Jira ticket update  ## ##
+skill erp/update_ticket($uid string, $comment string) is !UpdateTicket($uid, $comment);
+
+rule !UpdateTicket($uid, $comment) plan {
+  plan with erp_workflow(cid == $uid, $ticket_id) {
+    !AddCommentToTicket(cid -> $uid, ticket -> $ticket_id, $comment);
+  }
+}
+
+## ## Jira add comment to a ticket  ## ##
+skill erp/add_comment_ticket($ticket string, $comment string) is !AddComment($ticket, $comment);
+
+rule !AddComment($ticket, $comment) plan {
+  !AddCommentToTicket(cid -> Uuid(), $ticket, $comment);
+}
+
+delegate !AddCommentToTicket($cid, $ticket, $comment) {
+  let { $ticket } = pncp request jira/comment_ticket(ticket -> $ticket, $comment) in {
+    update erp_workflow(ticket_id == $ticket, status: $comment);
+    pncp response(status -> "OK");
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+## ## Jira state transition ## ##
+skill erp/transition_ticket($uid string, $status string) is !Transition($uid, $status);
+
+rule !Transition($uid, $status) plan {
+  !UpdateStatusTicket($uid, $status, cid -> Uuid());
+}
+
+rule !UpdateStatusTicket($uid, $status, $cid) plan{
+  plan with erp_workflow(cid == $uid, $ticket_id) {
+    !UpdateTicketStatus(ticket -> $ticket_id, $status, $cid);
+  }
+}
+
+delegate !UpdateTicketStatus($ticket, $status, $cid) {
+  let { $ticket } = pncp request jira/update_ticket_status(ticket -> $ticket, $status) in {
+    update erp_workflow(ticket_id == $ticket, status: $status);
+    pncp response(status -> "OK");
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+## ## Jira task queue initiation ## ##
+skill erp/get_next_ticket() is !GetNexTTicket();
+
+rule !GetNexTTicket() plan {
+  !NexTTicket();
+}
+
+delegate !NexTTicket() is jira/get_oldest_todo_ticket() return { ticket: $ticket };
+
+## ## Jira restart the workflow ## ##
+skill erp/run_next_work() is !RunWork(uid -> Uuid());
+
+rule !RunWork($uid) plan {
+  !NexTTicket($uid);
+  !AutoStart($uid);
+}
+    
+rule !AutoStart($uid), !NexTTicket(uid == $uid, $ticket) plan {
+  let $uid2 = Uuid();
+  log warn(`AutoStart started: $ticket`);
+  plan if $ticket <> "" {
+    !SaveData(uid -> $uid2, $ticket);
+    !ReRunWorkflow(uid -> $uid2);
+  } else {
+    !StopWorkflow();
+  }
+}
+
+task !SaveData($uid, $ticket) {
+  insert erp_workflow(cid: $uid, ticket_id: $ticket, status: "pending");
+}
+
+delegate !ReRunWorkflow($uid) {
+  pncp request demo/run_workflow($uid);
+}
+
+delegate !StopWorkflow() {
+  pncp request demo/reset_all();
+}

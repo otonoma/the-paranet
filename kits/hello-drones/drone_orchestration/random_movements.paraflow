@@ -1,0 +1,271 @@
+# SWARM ROUTINE: Individual Random Waypoints
+
+table create DroneInitialPosition(
+  drone_id int primary key,
+  initial_x double,
+  initial_y double,
+  initial_z double,
+  saved_at isodate
+);
+
+table create DroneState(
+  drone_id int primary key,
+  state text,
+  updated_at isodate
+);
+
+skill drone_swarm/start_swarm_random_individual() is !StartSwarmRandomIndividual();
+
+rule !StartSwarmRandomIndividual() plan {
+  !GetNumDrones() => { $num_drones } !InitializePositionsIfNeeded(num_drones -> $num_drones);
+  !SetAllDroneStateTo(state -> "random_individual");
+  spawn !ContinuousRandomIndividualMovement();
+  !SendRandomIndividualStarted();
+}
+
+task !SendRandomIndividualStarted() {
+  pncp response(status -> "success", message -> "Random individual movement started");
+}
+
+rule !InitializePositionsIfNeeded($num_drones) plan {
+  !CheckIfPositionsExist() => { $count } !InitializeIfNeeded(num_drones -> $num_drones, count -> $count);
+}
+
+task !CheckIfPositionsExist() {
+  with DroneInitialPosition(count(drone_id): $count) {
+    return { $count };
+  } else {
+    return { count: 0 };
+  }
+}
+
+rule !InitializeIfNeeded($num_drones, $count) plan {
+  plan if $count == 0 {
+    !SaveAllInitialPositions(num_drones -> $num_drones);
+  }
+}
+
+rule !SaveAllInitialPositions($num_drones) plan {
+  plan foreach $i in 0 until $num_drones {
+    !SaveInitialPosition(drone_id -> $i);
+  }
+}
+
+delegate !SaveInitialPosition($drone_id) {
+  let { x: $x, y: $y, z: $z } = 
+    pncp request drone_swarm/get_position(drone_id -> $drone_id) in {
+    insert DroneInitialPosition(drone_id: $drone_id, initial_x: $x, initial_y: $y, initial_z: $z, saved_at: Now());
+    log info(`Saved initial position for drone $drone_id`);
+  }
+}
+
+delegate !GetNumDrones() {
+  let { num_drones: $num } = 
+    pncp request drone_swarm/get_num_drones() in {
+    return { num_drones: $num };
+  }
+}
+
+rule !SetAllDroneStateTo($state) plan {
+  !GetNumDrones() => { $num_drones } !SetAllDroneState(num_drones -> $num_drones, state -> $state);
+}
+
+task !SetAllDroneState($num_drones, $state) {
+  foreach $i in 0 until $num_drones {
+    upsert DroneState(drone_id == $i, state: $state, updated_at: Now());
+  }
+  log warn(`Set all $num_drones drones to state: $state`);
+}
+
+rule !ContinuousRandomIndividualMovement() plan {
+  !SendAllToRandomWaypoints();
+  !CheckAndContinueRandomIndividual();
+}
+
+rule !CheckAndContinueRandomIndividual() plan {
+  !CheckIfAnyDroneInState(state -> "random_individual") => { $active_count } !ContinueIfActive(active_count -> $active_count);
+}
+
+task !CheckIfAnyDroneInState($state) {
+  with DroneState(state == $state, count(drone_id): $count) {
+    return { active_count: $count };
+  } else {
+    return { active_count: 0 };
+  }
+}
+
+rule !ContinueIfActive($active_count) plan {
+  plan if $active_count > 0 {
+    spawn !ContinuousRandomIndividualMovement() after Now() + 5 sec;
+  }
+}
+
+rule !SendAllToRandomWaypoints() plan {
+  !GetNumDrones() => { $num_drones } !SendDronesToRandomWaypoints(num_drones -> $num_drones);
+}
+
+rule !SendDronesToRandomWaypoints($num_drones) plan {
+  plan foreach $i in 0 until $num_drones {
+    !SendDroneToRandomWaypointIfActive(drone_id -> $i);
+  }
+}
+
+rule !SendDroneToRandomWaypointIfActive($drone_id) plan {
+  with DroneState(drone_id == $drone_id, state: $state) {
+    plan if $state == "random_individual" {
+      !SendDroneToRandomWaypoint(drone_id -> $drone_id);
+    }
+  }
+}
+
+rule !SendDroneToRandomWaypoint($drone_id) plan {
+  !ComputeRandomWaypoint(drone_id -> $drone_id) => { $target_x, $target_y, $target_z } !SetDroneGoal(drone_id -> $drone_id, x -> $target_x, y -> $target_y, z -> $target_z);
+}
+
+task !ComputeRandomWaypoint($drone_id) {
+  with DroneInitialPosition(drone_id == $drone_id, initial_x: $init_x, initial_y: $init_y, initial_z: $init_z) {
+    let $range = 10.0;
+    let $half_range = $range / 2.0;
+    
+    let $dx = (Random() * $range) - $half_range;
+    let $dy = (Random() * $range) - $half_range;
+    let $dz = Random() * ($range / 2.0);
+    
+    let $target_x = $init_x + $dx;
+    let $target_y = $init_y + $dy;
+    let $target_z = $init_z + $dz;
+    
+    if $target_z <= 2.0 {
+      let $target_z = 2.1;
+    }
+    
+    log info(`Individual Random: Drone $drone_id target: ($target_x, $target_y, $target_z) = initial ($init_x, $init_y, $init_z) + offset ($dx, $dy, $dz)`);
+    
+    return { $target_x, $target_y, $target_z };
+  }
+}
+
+delegate !SetDroneGoal($drone_id, $x, $y, $z) {
+  pncp request drone_swarm/set_goal(drone_id -> $drone_id, x -> $x, y -> $y, z -> $z);
+}
+
+
+# SWARM ROUTINE: Formation Random Movement
+
+skill drone_swarm/start_swarm_random_formation() is !StartSwarmRandomFormation();
+
+rule !StartSwarmRandomFormation() plan {
+  !GetNumDrones() => { $num_drones } !InitializePositionsIfNeeded(num_drones -> $num_drones);
+  !SetAllDroneStateTo(state -> "random_formation");
+  spawn !ContinuousFormationMovement();
+  !SendFormationStarted();
+}
+
+task !SendFormationStarted() {
+  pncp response(status -> "success", message -> "Random formation movement started");
+}
+
+rule !ContinuousFormationMovement() plan {
+  !GenerateRandomOffset() => { $dx, $dy, $dz } !SendAllToFormationWaypoint(dx -> $dx, dy -> $dy, dz -> $dz);
+  !CheckAndContinueFormation();
+}
+
+rule !CheckAndContinueFormation() plan {
+  !CheckIfAnyDroneInState(state -> "random_formation") => { $active_count } !ContinueFormationIfActive(active_count -> $active_count);
+}
+
+rule !ContinueFormationIfActive($active_count) plan {
+  plan if $active_count > 0 {
+    spawn !ContinuousFormationMovement() after Now() + 5 sec;
+  }
+}
+
+task !GenerateRandomOffset() {
+  let $range = 10.0;
+  let $half_range = $range / 2.0;
+  
+  let $dx = (Random() * $range) - $half_range;
+  let $dy = (Random() * $range) - $half_range;
+  let $dz = Random() * ($range / 2.0);
+  
+  log warn(`Formation offset: ($dx, $dy, $dz)`);
+  
+  return { $dx, $dy, $dz };
+}
+
+rule !SendAllToFormationWaypoint($dx, $dy, $dz) plan {
+  !GetNumDrones() => { $num_drones } !SendDronesToFormationWaypoint(num_drones -> $num_drones, dx -> $dx, dy -> $dy, dz -> $dz);
+}
+
+rule !SendDronesToFormationWaypoint($num_drones, $dx, $dy, $dz) plan {
+  plan foreach $i in 0 until $num_drones {
+    !SendDroneToFormationWaypointIfActive(drone_id -> $i, dx -> $dx, dy -> $dy, dz -> $dz);
+  }
+}
+
+rule !SendDroneToFormationWaypointIfActive($drone_id, $dx, $dy, $dz) plan {
+  with DroneState(drone_id == $drone_id, state: $state) {
+    plan if $state == "random_formation" {
+      !SendDroneToFormationWaypoint(drone_id -> $drone_id, dx -> $dx, dy -> $dy, dz -> $dz);
+    }
+  }
+}
+
+rule !SendDroneToFormationWaypoint($drone_id, $dx, $dy, $dz) plan {
+  !ComputeFormationWaypoint(drone_id -> $drone_id, dx -> $dx, dy -> $dy, dz -> $dz) => { $target_x, $target_y, $target_z } !SetDroneGoal(drone_id -> $drone_id, x -> $target_x, y -> $target_y, z -> $target_z);
+}
+
+task !ComputeFormationWaypoint($drone_id, $dx, $dy, $dz) {
+  with DroneInitialPosition(drone_id == $drone_id, initial_x: $init_x, initial_y: $init_y, initial_z: $init_z) {
+    let $target_x = $init_x + $dx;
+    let $target_y = $init_y + $dy;
+    let $target_z = $init_z + $dz;
+    
+    if $target_z <= 2.0 {
+      let $target_z = 2.1;
+    }
+    
+    log info(`Formation: Drone $drone_id target: ($target_x, $target_y, $target_z) = initial ($init_x, $init_y, $init_z) + offset ($dx, $dy, $dz)`);
+    
+    return { $target_x, $target_y, $target_z };
+  }
+}
+
+
+# STOP ALL ROUTINES & STATE MANAGEMENT
+
+skill drone_swarm/stop_swarm_routines() is !StopSwarmRoutines();
+
+rule !StopSwarmRoutines() plan {
+  !SetAllDroneStateTo(state -> "idle");
+  !SendStopResponse();
+}
+
+task !SendStopResponse() {
+  pncp response(status -> "success", message -> "All swarm routines stopped - drones set to idle");
+}
+
+skill drone_swarm/set_drone_state($drone_id int, $state string) is !SetDroneState(drone_id -> $drone_id, state -> $state);
+
+task !SetDroneState($drone_id, $state) {
+  upsert DroneState(drone_id == $drone_id, state: $state, updated_at: Now());
+  log info(`Drone $drone_id state set to: $state`);
+  pncp response(status -> "success", drone_id -> $drone_id, new_state -> $state);
+}
+
+skill drone_swarm/get_drone_state($drone_id int) is !GetDroneState(drone_id -> $drone_id);
+
+task !GetDroneState($drone_id) {
+  with DroneState(drone_id == $drone_id, state: $state, updated_at: $updated) {
+    pncp response(drone_id -> $drone_id, state -> $state, updated_at -> $updated);
+  } else {
+    pncp response(drone_id -> $drone_id, state -> "undefined", updated_at -> null);
+  }
+}
+
+skill drone_swarm/get_all_drone_states() is !GetAllDroneStates();
+
+task !GetAllDroneStates() {
+  let $states(drone_id, state, updated_at) = select DroneState(drone_id, state, updated_at);
+  pncp response(drone_states -> $states);
+}

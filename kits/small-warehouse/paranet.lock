@@ -1,0 +1,7 @@
+version: '1'
+entries:
+  warehouse:
+    id: warehouse
+    version: 0.0.1
+    source: ./
+    kind: Root

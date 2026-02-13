@@ -1,0 +1,71 @@
+table create inventory(
+  qty int,
+  low_limit int
+)
+
+constant $SELF = Env("COLOR");
+
+event system restart trigger() {
+  if not exists !MainLoop(id == "1") {
+    new !MainLoop(id -> "1");
+  }
+}
+
+rule !MainLoop($id) plan {
+  let $id = Uuid();
+  !ResetDB($id);
+}
+
+skill color_tools/reset_inventory() {
+  !ResetInventory();
+}
+
+rule !ResetInventory() plan {
+  !ResetDB();
+  !MessageDbReset();
+}
+
+task !ResetDB() {
+  let $qty = 2;
+  let $low_limit = 0;
+  delete inventory();
+  insert inventory($qty, $low_limit);
+}
+
+task !MessageDbReset() {
+  pncp response(message -> `$SELF provider db reset.`);
+}
+
+# Extract node color designation, as injected via env var. 
+#   In this case:
+#     1. cli command in scripts/install-packages.sh
+#     2. env var reference in paranet.yaml
+# IMPORTANT: Note the %skillset decoration. That makes the skill accessible by other nodes!
+%skillset(gen = color_skill@1.0.0)
+skill color_tools/identify_self() {
+  return {MyColor: $SELF};
+}
+
+%skillset(gen = color_skill@1.0.0)
+skill color_tools/share_color() {
+  !ShareColor();
+}
+
+rule !ShareColor() plan {
+  plan with inventory($qty, $qty > low_limit) {
+    !Share($qty);
+  }
+  else {
+    !MessageUnavailable();
+  }
+}
+
+task !Share($qty) {
+  log warn("SHARING");
+  update inventory(qty == $qty, qty: decrBy(1));
+  pncp response(MyColor -> $SELF, color_in_stock -> True());
+} 
+
+task !MessageUnavailable() {
+  pncp response(MyColor -> $SELF, color_in_stock -> False());
+}

@@ -1,0 +1,27 @@
+simulation_configs:
+  headless: true
+  low_res: true
+
+sim_actors:
+  robot_arm:
+    - name: "franka_1"
+      position: [4.3, -27.0, 1.0]
+      repair_position: [5.0, -27.0, 1.0]
+    - name: "franka_2"
+      position: [4.3, -24.5, 1.0]
+      repair_position: [5.0, -24.5, 1.0]
+    - name: "franka_3"
+      position: [9.5, -26.0, 1.0]
+      repair_position: [8.8, -26.0, 1.0]
+  robot_quadruped:
+    - name: "spot_1"
+      color: "blue"
+      position: [5.0, -5.0]
+    - name: "spot_2"
+      color: "blue"
+      position: [7.0, -5.0]
+  sim_workers:
+    - stage_prefix: "worker1"
+      character_name: "original_male_adult_construction_05"
+      work_position: [6.4, -1.55, 0.0]
+      work_yaw: 90.0

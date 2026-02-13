@@ -1,0 +1,5 @@
+id: hello_federate
+name: hello_federate
+insecure: true
+simulation: true
+channel: dev

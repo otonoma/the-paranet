@@ -1,0 +1,173 @@
+
+%skillset(id=spot@1.0.0)
+skill patrol/inspect_availability($col int, $row int) is !CheckAvailability($col, $row);
+
+rule !CheckAvailability($col, $row) plan {
+  plan if exists inspection(status == null) {
+    !ReportUnavailable($col, $row);
+  } else {
+    !ReportAvailableDistance($col, $row);
+  }
+}
+
+task !ReportUnavailable($col, $row) {
+  pncp response(status -> "unavailable", distance -> 0);
+}
+
+delegate !ReportAvailableDistance($col, $row) {
+   let { $distance } = pncp request spot_phy/get_distance($col, $row) to "spot_phy_" + Env("SPOT_ID") + "@*" in {
+    pncp response(status -> "available", $distance);
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+
+########## patrol/assignment
+
+%skillset(id=spot@1.0.0)
+skill patrol/assignment($circuit json) is !OnAssignment($circuit);
+
+rule !OnAssignment($circuit) plan {
+    !OnAssignmentTask($circuit);
+} 
+
+task !OnAssignmentTask($circuit) {
+    let $id = insert patrol($circuit);
+    !StartAssignment($id);
+} 
+
+task !StartAssignment($id) {
+  let $phy = ActorId(Env("SPOT_ID"));
+  foreach patrol(active == 1, id: $assignment) {
+    update patrol(id == $assignment, active: 0, end: Now());
+    pncp request spot_phy/end_patrol() to $phy;
+  }
+  update patrol(id == $id, active: 1, start: Now());
+  with patrol(id == $id, $circuit) {
+    pncp request spot_phy/start_patrol(circuit -> JsonParse($circuit)) to $phy;
+  }
+  pncp response(status -> "OK");
+}
+
+
+########## patrol/inspect_area
+
+%skillset(id=spot@1.0.0)
+skill patrol/inspect_area($col int, $row int) is !PerformInspection($col, $row);
+
+rule !PerformInspection($col, $row) plan {
+  let $uid = Uuid();
+  !InsertInspection($uid, $col, $row);
+  parallel [
+    !GetPatrolCover($uid, $row, $col),
+    !Inspect($uid, $row, $col)
+    ];
+  !StopCover($uid);
+}
+
+task !InsertInspection($uid, $col, $row) {
+  insert inspection($uid, $col, $row);
+}
+
+delegate !Inspect($uid, $col, $row) {
+   let { $status } = pncp request spot_phy/inspect($col, $row) to "spot_phy_" + Env("SPOT_ID") + "@*" in {
+    update inspection(uid == $uid, $status);
+    pncp response($status);
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+rule !GetPatrolCover($uid, $col, $row) plan {
+  plan with patrol(active == 1, $circuit) {
+    let $avoid = JsonString({ col: $col, row: $row });
+    !GetActivePeers($uid, $circuit, $avoid);
+    !ObtainPeerCover($uid, $circuit, $avoid);
+  } else {
+    log info("No patrol to cover");
+  }
+}
+
+delegate !GetActivePeers($uid, $circuit, $avoid) {
+   let { $providers(id, kind) } = pncp request skill/match_providers(subject -> "spot_phy", action -> "request_cover", data -> { circuit: JsonParse($circuit), avoid: JsonParse($avoid) } ) in {
+      let $my_phy = ActorId(Env("SPOT_ID"));
+    foreach $providers(id: $provider, $kind) {
+      if not MatchRe($my_phy, $provider) {
+        insert cover_dispatch($uid, $provider);
+      }
+    }
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+
+rule !ObtainPeerCover($uid, $circuit, $avoid) plan {
+  plan foreach cover_dispatch(uid == $uid, $provider) {
+    !RequestCover($uid, $provider, $circuit, $avoid);
+  }
+}
+
+delegate !RequestCover($uid, $provider, $circuit, $avoid) {
+   let { $status } = pncp request spot_phy/request_cover(circuit -> JsonParse($circuit), avoid-> JsonParse($avoid)) to $provider in {
+       if $status == "OK" {
+      update cover_dispatch(uid == $uid, provider == $provider, accepted: 1);
+      foreach cover_dispatch(uid == $uid, accepted == -1, provider: $other) {
+        log warn(`CANCEL  + $other`);
+        cancel !RequestCover($uid, provider -> $other);
+      }
+    } else {
+      update cover_dispatch(uid == $uid, provider == $provider, accepted: 0);
+    }
+  }
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+rule !StopCover($uid) plan {
+  plan with cover_dispatch(uid == $uid, accepted == 1, $provider) {
+    !SendEndCover($uid, $provider);
+  }
+}
+
+delegate !SendEndCover($uid, $provider) {
+   pncp request spot_phy/end_cover() to $provider; 
+} handle {
+  error { $error } -> pncp response(status -> "failed", $error);
+  cancel -> pncp response(status -> "canceled");
+}
+
+
+########## Utility
+
+function ActorId($id string) {
+  return "spot_phy_" + $id + "@*";
+}
+
+
+########## simulation/reset
+
+# Resets internal state so the network does not need to be recreated
+# each time simulation is run.
+
+%skillset(gen = spot_sim@1.0.0)
+skill simulation/reset() is !OnSimReset();
+
+
+rule !OnSimReset() plan {
+  !OnSimResetAction();
+}
+task !OnSimResetAction() {
+  foreach inspection(status == null, $uid) {
+    cancel !Inspect($uid);
+  }
+  update inspection(status == null, status: "canceled");
+
+  update patrol(active: 0);
+  return { status: "OK" };
+}

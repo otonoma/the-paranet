@@ -1,0 +1,21 @@
+id: spot_phy@1.0.0
+skills:
+- subject: spot_phy
+  actions:
+  - action: get_distance
+    input:
+      row: paranet:int
+      col: paranet:int
+  - action: start_patrol
+    input:
+      circuit: paranet:object
+  - action: end_patrol
+  - action: inspect
+    input:
+      row: paranet:int
+      col: paranet:int
+  - action: request_cover
+    input:
+      circuit: paranet:object
+      avoid: paranet:object
+  - action: end_cover

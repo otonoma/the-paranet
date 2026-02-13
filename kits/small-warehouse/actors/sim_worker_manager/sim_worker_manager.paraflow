@@ -1,0 +1,67 @@
+### Sim worker - Fix Franka by Franka ID
+skill sim_worker/FixFrankaById($frankaID int) is !workerFixFrankaByIdAction($frankaID);
+
+# Rule to orchestrate the fix workflow: log, get location, move worker, then enable Franka
+rule !workerFixFrankaByIdAction($frankaID) plan {
+  log warn(`Fixing Franka by ID: $frankaID`);
+  !workerFixFrankaById($frankaID) => { $x, $y } !gotoWorkflow($frankaID, $x, $y);
+  !enableFrankabyId($frankaID);
+}
+
+# Fetch the Franka's current X/Y location and return coordinates
+delegate !workerFixFrankaById($frankaID) {
+  let { $x, $y } = pncp request franka/get_repair_location() to (`franka_$frankaID@1.0.0`) in {
+    log warn(`Franka location: x=$x, y=$y`);
+    return { $x, $y };
+  }
+}
+
+# Trigger worker movement once Franka's location is known and log dispatch
+rule !gotoWorkflow($frankaID, $x, $y) plan {
+  !moveWorkerTo($x, $y);
+  log warn(`Sim worker dispatched to ($x, $y)`);
+}
+
+# Command the simulation worker to travel to given coordinates
+delegate !moveWorkerTo($x, $y) is sim_worker/worker_goto($x, $y);
+
+# Enable the Franka by ID
+delegate !enableFrankabyId($frankaID) is 
+  franka/enable() to (`franka_$frankaID@1.0.0`);
+
+### Sim worker - Go work in Bench (move to initial position)
+skill sim_worker/WorkInBench() is !workerWorkInBenchAction();
+
+# Main orchestration rule
+rule !workerWorkInBenchAction() plan {
+  log warn("Go work in bench");
+  !getInitialPosition();
+  !moveToPosition();
+}
+
+# Get the worker's initial position
+delegate !getInitialPosition() {
+  let { $x, $y } = pncp request sim_worker/get_initial_position() in {
+    log warn(`Worker initial position: x=$x, y=$y`);
+    return { x: $x, y: $y };
+  }
+}
+
+# Move to the position once we have coordinates
+rule !moveToPosition(), !getInitialPosition(x: $x, y: $y) plan {
+  !moveWorkerToBench($x, $y);
+  !completeBenchMove($x, $y);
+}
+
+# Move worker to bench position
+delegate !moveWorkerToBench($x, $y) {
+  let { $status } = pncp request sim_worker/worker_goto($x, $y) in {
+    return { status: $status };
+  }
+}
+
+# Complete the bench movement and send response
+task !completeBenchMove($x, $y) {
+  let $message = `Worker moved to bench position at ($x, $y)`;
+  pncp response($message);
+}

@@ -1,0 +1,7 @@
+skill hello_world/greet() is 
+  !Greet(Peer -> Peer());
+
+task !Greet($Peer) {
+  let $message = `Hello $Peer!`;
+  pncp response($message);
+}

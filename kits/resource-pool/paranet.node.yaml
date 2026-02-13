@@ -1,0 +1,8 @@
+id: resource-demo
+name: resource-demo
+insecure: true
+channel: dev
+versions:
+  paraflow: 3.0.0-rc.33
+  paranet: 2.4.4-rc.5
+  paracord: 0.14.0-rc.10

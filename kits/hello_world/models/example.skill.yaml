@@ -1,0 +1,11 @@
+# Example of an external skill.
+id: example_skill@1.0.0
+skills:
+  - subject: example
+    actions:
+      - action: test
+        input:
+          x: paranet:number
+          y: paranet:number
+        output:
+          z: paranet:number

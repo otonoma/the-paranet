@@ -1,0 +1,5 @@
+kind: dev
+simulation: false
+insecure: false
+databases:
+  paraflow: sqlite

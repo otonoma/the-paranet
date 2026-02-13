@@ -1,0 +1,88 @@
+table create phrase_words(
+  phrase_id string,
+  word string,
+  word_order int
+);
+
+skill phrase_writer/write_phrase($phrase string, $width_meters double) is 
+  !WritePhrase($phrase, $width_meters);
+
+rule !WritePhrase($phrase, $width_meters) plan {
+  log warn(`Starting phrase writer: "$phrase"`);
+  !GetNumDrones() => { $num_drones } !ProcessPhrase($phrase, $num_drones, $width_meters);
+}
+
+delegate !GetNumDrones() {
+  let { num_drones: $count } = pncp request drone_swarm/get_num_drones() in {
+    log info(`Retrieved drone count: $count`);
+    return { num_drones: $count };
+  }
+}
+
+task !SplitPhraseIntoWords($phrase_id, $phrase) {
+  let $words(word) = Split($phrase, " ");
+  
+  let $order = 0;
+  foreach $words(word: $word) {
+    insert phrase_words(phrase_id: $phrase_id, word: $word, word_order: $order);
+    let $order = $order + 1;
+  }
+}
+
+rule !ProcessPhrase($phrase, $num_drones, $width_meters) plan {
+  let $phrase_id = Uuid();
+  
+  # Split and store in task
+  !SplitPhraseIntoWords($phrase_id, $phrase);
+
+  !ProcessStoredWords($phrase_id, $num_drones, $width_meters);
+  !CleanupPhraseWords($phrase_id);
+  !SendPhraseComplete($phrase);
+}
+
+rule !ProcessStoredWords($phrase_id, $num_drones, $width_meters) plan {
+  plan foreach phrase_words(phrase_id == $phrase_id, word: $word) {
+    log warn(`Processing word: "$word"`);
+    !ProcessWord($word, $num_drones, $width_meters);
+  }
+}
+
+task !CleanupPhraseWords($phrase_id) {
+  delete phrase_words(phrase_id == $phrase_id);
+}
+
+rule !ProcessWord($word, $num_drones, $width_meters) plan {
+  # Generate random height between 10 and 30
+  let $random_offset = RandomInt(21);
+  let $height_z = 10 + $random_offset;
+  
+  log warn(`Forming word: "$word" at height $height_z`);
+  !FormWord($word, $num_drones, $width_meters, $height_z);
+  wait 90 sec;
+  !StartRandom();
+  wait 20 sec;
+  !StopRandom();
+  wait 20 sec;
+}
+
+delegate !FormWord($word, $num_drones, $width_meters, $height_z) {
+  let { message: $msg } = pncp request drone_swarm/write_word(
+    word -> $word,
+    width_meters -> $width_meters,
+    height_z -> $height_z
+  ) in {
+    log info(`Formed word: $msg`);
+  }
+}
+
+delegate !StartRandom() {
+  pncp request drone_swarm/start_swarm_random_individual();
+}
+
+delegate !StopRandom() {
+  pncp request drone_swarm/stop_swarm_routines();
+}
+
+task !SendPhraseComplete($phrase) {
+  pncp response(status -> "success", message -> `Phrase complete: "$phrase"`);
+}

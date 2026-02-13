@@ -1,0 +1,7 @@
+version: '1'
+entries:
+  hello-federate:
+    id: hello-federate
+    version: 0.1.0
+    source: ./
+    kind: Root

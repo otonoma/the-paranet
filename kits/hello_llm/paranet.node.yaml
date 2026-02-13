@@ -1,0 +1,5 @@
+id: hello-llm
+version: 0.1.0
+kind: dev
+simulation: true
+insecure: true

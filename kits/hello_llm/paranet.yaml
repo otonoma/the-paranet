@@ -1,0 +1,17 @@
+id: hello-llm
+name: hello-llm
+version: 0.1.0
+actors:
+- name: chatgpt
+  version: 0.1.0
+  paraflow: ./actors/chatgpt/chatgpt.paraflow
+
+- name: chatgpt_sdk
+  version: 0.1.0
+  path: ./actors/chatgpt_engine
+  python_sdk: chatgpt_py.py
+  env:
+    AZURE_OPENAI_API_KEY:
+      from_env: AZURE_OPENAI_API_KEY
+    AZURE_OPENAI_ENDPOINT:
+      from_env: AZURE_OPENAI_ENDPOINT

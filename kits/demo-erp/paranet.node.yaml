@@ -1,0 +1,8 @@
+id: demo-erp
+version: 0.1.0
+simulation: true
+insecure: true
+versions: 
+  paraflow: 3.0.0-rc.25
+  paranet: 2.4.4-rc.5
+  paracord: 0.13.14-rc.8

@@ -1,0 +1,10 @@
+id: franka@1.0.0
+skills:
+- subject: franka
+  actions:
+  - action: status
+  - action: disable
+  - action: enable
+  - action: get_location
+  - action: get_repair_location
+ 

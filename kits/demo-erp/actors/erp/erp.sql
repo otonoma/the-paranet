@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS erp_workflow (
+  `cid` VARCHAR(255) NOT NULL,
+  `ticket_id` VARCHAR(255) NOT NULL,
+  `status` VARCHAR(255) NOT NULL
+);

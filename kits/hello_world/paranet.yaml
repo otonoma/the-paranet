@@ -1,0 +1,39 @@
+# This file represents a "paranet package". A package is a collection of actors, panels, sidecars, and model
+# files. This package represents "your paranet" - all of your actors are defined here for deployment to a
+# node. A package can be deployed to multiple nodes or imported into other packages. Most commonly for
+# development you will have one package per node.
+#
+# Below we will briefly explain the most common fields you will see or use in a package.
+# Many additional fields exist to further configure actors or the package. For a full reference, see [...TODO]
+
+# Unique ID for this package. 
+id: hello-world
+# Semantic version of this package
+version: "0.1.0"
+# Optional display name for the package
+name: Hello world examples
+# The list of actors in this package. 
+actors:
+  - name: Hello Paranet               # Name for this actor, used to generate a unique ID
+    version: "0.1.0"                  # Version of this actor. In production nodes, these need to be incremented any time the actor changes
+    paraflow: hello_paranet.paraflow  # Paraflow file for the actor
+    path: ./hello_paranet             # Path to the actor, relative to the package file
+    env:                              # Arbitrary environment variables provided to the actor
+      CUSTOM_VAR: "1"                 # can be any variables or values
+  - name: Hello SQL
+    version: "0.1.0"
+    paraflow: hello.paraflow
+    path: ./hello_sql
+  # Python actor.
+  - name: Hello Python SDK
+    version: "0.1.0"
+    path: ./hello_python_sdk
+    python_sdk: hello.py  # Uses the python SDK hello.py is the entrypoint.
+
+# Additional model files can be listed here. These are mostly used for writing hand written skill definitions.
+models:
+  - ./models/example.skill.yaml
+# Additional meta model files can be listed here. These can be used for creating user definitions that need to
+# always be a part of the package.
+meta_models:
+  - ./models/custom_user.user.yaml

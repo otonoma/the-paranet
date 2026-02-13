@@ -1,0 +1,11 @@
+id: hello-federate
+version: 0.1.0
+name: Hello federate
+actors:
+  - name: Color Tools
+    version: "0.1.0"
+    paraflow: color_tools.paraflow
+    path: actors
+    env:
+      COLOR:
+        from_env: COLOR
