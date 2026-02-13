@@ -26,6 +26,8 @@ The fastest way to understand The Paranet is to dive into our documentation.
 
 ### [Read the Official Documentation →](https://docs.paranet.otonoma.com/)
 
+### Code with the Paranet [Request devkit access →](https://www.otonoma.com/developers#devkit-form/)
+
 ---
 
 ## 🛠️ Developer Kits (SDKs)
