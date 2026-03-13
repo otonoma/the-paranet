@@ -1,5 +1,5 @@
-id: hello_federate
-name: hello_federate
+id: hello-federate
+name: hello-federate
 insecure: true
 simulation: true
 channel: dev
