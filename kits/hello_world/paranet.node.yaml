@@ -1,5 +1,5 @@
-id: hello_world
-name: hello_world
+id: hello-world
+name: hello-world
 insecure: true
 simulation: true
 channel: prod
